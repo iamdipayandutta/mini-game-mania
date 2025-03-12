@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Number Guess</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='number_guess.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="glitch" data-text="NUMBER GUESS">NUMBER GUESS</h1>
+        <p>Guess a number between <span id="range"></span></p>
+        <input type="number" id="userGuess" placeholder="Enter your guess">
+        <button id="guessBtn">Guess</button>
+        <p id="message"></p>
+        <p class="ai-hint" id="aiHint"></p>
+        <button id="resetBtn">Play Again</button>
+    </div>
+    
+    <script src="{{ url_for('static', filename='number_guess.js') }}"></script>
+</body>
+</html>

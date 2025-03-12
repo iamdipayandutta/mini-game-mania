@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Game Mania</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1 class="title">🎮 Mini-Game Mania 🎮</h1>
+
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="openTab(event, 'tic-tac-toe')">Tic-Tac-Toe</button>
+        <button class="tab-btn" onclick="openTab(event, 'rock-paper-scissors')">Rock Paper Scissors</button>
+        <button class="tab-btn" onclick="openTab(event, 'number-guess')">Number Guess</button>
+        <button class="tab-btn" onclick="openTab(event, 'leaderboard')">Leaderboard</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="tic-tac-toe" class="tab-content active">
+        <a href="/tic-tac-toe" class="game-link">▶ Play Tic-Tac-Toe</a>
+    </div>
+
+    <div id="rock-paper-scissors" class="tab-content">
+        <a href="/rock-paper-scissors" class="game-link">▶ Play Rock Paper Scissors</a>
+    </div>
+
+    <div id="number-guess" class="tab-content">
+        <a href="/number-guess" class="game-link">▶ Play Number Guess</a>
+    </div>
+
+    <div id="leaderboard" class="tab-content">
+        <h2>🏆 Game Leaderboard 🏆</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Game</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-data">
+                <!-- Scores will be added dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

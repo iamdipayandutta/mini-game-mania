@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rock_paper_scissors.css') }}">
+</head>
+<body>
+    <h1>Game Leaderboard</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Game</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard">
+            <!-- Scores will be added here dynamically -->
+        </tbody>
+    </table>
+    <script>
+        function fetchScores() {
+            fetch('/get-scores')
+            .then(response => response.json())
+            .then(scores => {
+                let table = document.getElementById("leaderboard");
+                table.innerHTML = ""; // Clear old data
+                scores.forEach(score => {
+                    let row = `<tr><td>${score.player}</td><td>${score.game}</td><td>${score.score}</td></tr>`;
+                    table.innerHTML += row;
+                });
+            })
+            .catch(error => console.error('Error fetching scores:', error));
+        }
+
+        window.onload = fetchScores; // Load scores on page load
+    </script>
+</body>
+</html>
